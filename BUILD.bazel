@@ -1,0 +1,10 @@
+load("@npm//@bazel/concatjs:index.bzl", "concatjs_devserver")
+
+concatjs_devserver(
+    name = "devserver",
+    additional_root_paths = [],
+    entry_module = "concatjs_windows_bug/main.js",
+    scripts = [],
+    static_files = ["test.txt"],
+    deps = ["main.js"],
+)
