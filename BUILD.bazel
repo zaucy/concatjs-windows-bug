@@ -5,6 +5,23 @@ concatjs_devserver(
     additional_root_paths = [],
     entry_module = "concatjs_windows_bug/main.js",
     scripts = [],
-    static_files = ["test.txt"],
+    static_files = [
+        "test.txt",
+        "nested/test.txt",
+        "@npm//:node_modules/@bazel/concatjs/LICENSE",
+    ],
+    deps = ["main.js"],
+)
+
+concatjs_devserver(
+    name = "devserver_workaround",
+    additional_root_paths = ["external"],
+    entry_module = "concatjs_windows_bug/main.js",
+    scripts = [],
+    static_files = [
+        "test.txt",
+        "nested/test.txt",
+        "@npm//:node_modules/@bazel/concatjs/LICENSE",
+    ],
     deps = ["main.js"],
 )

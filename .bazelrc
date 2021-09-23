@@ -1,2 +1,10 @@
+build --enable_platform_specific_config
+
 build --enable_runfiles
 startup --windows_enable_symlinks
+
+# On windows in order for the devserver to work we have to enable legacy 
+# external runfiles
+build:windows --legacy_external_runfiles
+build:linux --nolegacy_external_runfiles
+build:macos --nolegacy_external_runfiles
